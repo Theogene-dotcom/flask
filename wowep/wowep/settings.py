@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'wowep.wsgi.application'
 DATABASES = {
     'default':{
         'ENGINE':'django.db.backends.postgresql',
-        'NAME':'database12',
+        'NAME':'database14',
         'USER':'postgres',
         'PASSWORD':'postgres123',
-        'HOST':'database12.cxuwegmkww2f.us-west-2.rds.amazonaws.com',
+        'HOST':'database14.cxuwegmkww2f.us-west-2.rds.amazonaws.com',
         'PORT':'5432',
     }
 }
