@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,13 +77,13 @@ WSGI_APPLICATION = 'wowep.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default':{
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME':'database14',
-        'USER':'postgres',
-        'PASSWORD':'postgres123',
-        'HOST':'database14.cxuwegmkww2f.us-west-2.rds.amazonaws.com',
-        'PORT':'5432',
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('RDS_DB_NAME', default='database14'),
+        'USER': config('RDS_USERNAME'),
+        'PASSWORD': config('RDS_PASSWORD'),
+        'HOST': config('RDS_HOSTNAME'),
+        'PORT': config('RDS_PORT', default='5432'),
     }
 }
 
