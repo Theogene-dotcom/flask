@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  my-django:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - static_vol:/wowep/app/static
+      - media_vol:/wowep/app/media
+    ports:
+      - "8000:8000"
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static_vol:/wowep/app/static
+      - media_vol:/wowep/app/media
+    ports:
+      - "80:80"
+    depends_on:
+      - my-django
+
+volumes:
+  static_vol:
+  media_vol:
